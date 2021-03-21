@@ -1,0 +1,25 @@
+{
+  "manifest_version":2,
+  "name": "ChromeMemo",
+  "version": "1.0.0",
+  "description": "アイコンクリックで、メモを起動します。URLボタンでURL,コピーボタンで選択範囲をメモに入れ込みます。メモを保存するときはSAVEをクリックしてください。",
+  "permissions": ["tabs","storage","system.cpu"],
+  "browser_action": {
+    "default_title": "ChromeMemo",
+    "default_popup": "popup/popup.html"
+  },
+  "content_scripts": [
+    {
+      "run_at":"document_end",
+      "matches": ["https://togami2864.github.io/GSoC2021_sample/"],
+      "js": ["content/content.js"]
+    }
+  ],
+  "externally_connectable": {
+  "matches": ["https://togami2864.github.io/GSoC2021_sample/"]
+},
+"background" : {
+        "scripts" : ["event.js"]
+    }
+
+}
